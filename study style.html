@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Style Quiz</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .quiz-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2575fc;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      animation: slideDown 0.8s ease-in-out;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .question label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .options label {
+      margin-bottom: 10px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .options label:hover {
+      background: #e0e0e0;
+      transform: translateX(5px);
+    }
+
+    .options input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2575fc;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>What's Your Learning Style?</h1>
+    <form id="quiz-form">
+      <!-- Question 1 -->
+      <div class="question">
+        <label>1. When learning something new, I prefer to:</label>
+        <div class="options">
+          <label><input type="radio" name="q1" value="visual"> See diagrams or pictures</label>
+          <label><input type="radio" name="q1" value="auditory"> Listen to explanations</label>
+          <label><input type="radio" name="q1" value="kinesthetic"> Try it out hands-on</label>
+        </div>
+      </div>
+      <!-- Question 2 -->
+      <div class="question">
+        <label>2. I remember things best when I:</label>
+        <div class="options">
+          <label><input type="radio" name="q2" value="visual"> Write them down or see them written</label>
+          <label><input type="radio" name="q2" value="auditory"> Hear them spoken</label>
+          <label><input type="radio" name="q2" value="kinesthetic"> Do something physical with the information</label>
+        </div>
+      </div>
+      <!-- Question 3 -->
+      <div class="question">
+        <label>3. When studying, I like to:</label>
+        <div class="options">
+          <label><input type="radio" name="q3" value="visual"> Use charts, graphs, or flashcards</label>
+          <label><input type="radio" name="q3" value="auditory"> Discuss the material with others</label>
+          <label><input type="radio" name="q3" value="kinesthetic"> Take breaks and move around</label>
+        </div>
+      </div>
+      <!-- Question 4 -->
+      <div class="question">
+        <label>4. I enjoy learning when I can:</label>
+        <div class="options">
+          <label><input type="radio" name="q4" value="visual"> Watch videos or look at images</label>
+          <label><input type="radio" name="q4" value="auditory"> Listen to podcasts or lectures</label>
+          <label><input type="radio" name="q4" value="kinesthetic"> Engage in activities or experiments</label>
+        </div>
+      </div>
+      <!-- Question 5 -->
+      <div class="question">
+        <label>5. When solving a problem, I prefer to:</label>
+        <div class="options">
+          <label><input type="radio" name="q5" value="visual"> Draw or visualize the problem</label>
+          <label><input type="radio" name="q5" value="auditory"> Talk through the problem out loud</label>
+          <label><input type="radio" name="q5" value="kinesthetic"> Use physical objects to model the problem</label>
+        </div>
+      </div>
+      <!-- Question 6 -->
+      <div class="question">
+        <label>6. I find it easiest to remember:</label>
+        <div class="options">
+          <label><input type="radio" name="q6" value="visual"> Faces and places</label>
+          <label><input type="radio" name="q6" value="auditory"> Names and conversations</label>
+          <label><input type="radio" name="q6" value="kinesthetic"> Actions and experiences</label>
+        </div>
+      </div>
+      <!-- Question 7 -->
+      <div class="question">
+        <label>7. When giving directions, I tend to:</label>
+        <div class="options">
+          <label><input type="radio" name="q7" value="visual"> Draw a map</label>
+          <label><input type="radio" name="q7" value="auditory"> Explain verbally</label>
+          <label><input type="radio" name="q7" value="kinesthetic"> Walk or move while explaining</label>
+        </div>
+      </div>
+      <!-- Question 8 -->
+      <div class="question">
+        <label>8. I prefer to learn new skills by:</label>
+        <div class="options">
+          <label><input type="radio" name="q8" value="visual"> Watching demonstrations</label>
+          <label><input type="radio" name="q8" value="auditory"> Listening to instructions</label>
+          <label><input type="radio" name="q8" value="kinesthetic"> Practicing immediately</label>
+        </div>
+      </div>
+      <!-- Question 9 -->
+      <div class="question">
+        <label>9. When I’m bored, I like to:</label>
+        <div class="options">
+          <label><input type="radio" name="q9" value="visual"> Watch TV or browse the internet</label>
+          <label><input type="radio" name="q9" value="auditory"> Listen to music or podcasts</label>
+          <label><input type="radio" name="q9" value="kinesthetic"> Go for a walk or exercise</label>
+        </div>
+      </div>
+      <!-- Question 10 -->
+      <div class="question">
+        <label>10. I feel most engaged when I:</label>
+        <div class="options">
+          <label><input type="radio" name="q10" value="visual"> See colorful visuals or presentations</label>
+          <label><input type="radio" name="q10" value="auditory"> Hear interesting stories or discussions</label>
+          <label><input type="radio" name="q10" value="kinesthetic"> Participate in hands-on activities</label>
+        </div>
+      </div>
+      <button type="button" onclick="calculateResult()">Get Results</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateResult() {
+      const answers = {
+        visual: 0,
+        auditory: 0,
+        kinesthetic: 0
+      };
+
+      // Get all selected answers
+      const selectedAnswers = document.querySelectorAll('input[type="radio"]:checked');
+
+      // Check if all questions are answered
+      if (selectedAnswers.length < 10) {
+        document.getElementById('result').textContent = 'Please answer all questions to get your result.';
+        return;
+      }
+
+      // Count the answers
+      selectedAnswers.forEach(input => {
+        answers[input.value]++;
+      });
+
+      // Determine the highest score
+      let maxScore = 0;
+      let learningStyle = '';
+      for (const style in answers) {
+        if (answers[style] > maxScore) {
+          maxScore = answers[style];
+          learningStyle = style;
+        }
+      }
+
+      // Display the result
+      const resultDiv = document.getElementById('result');
+      if (learningStyle === 'visual') {
+        resultDiv.textContent = 'Your learning style is Visual! You learn best by seeing information.';
+      } else if (learningStyle === 'auditory') {
+        resultDiv.textContent = 'Your learning style is Auditory! You learn best by hearing information.';
+      } else if (learningStyle === 'kinesthetic') {
+        resultDiv.textContent = 'Your learning style is Kinesthetic! You learn best by doing and moving.';
+      }
+    }
+  </script>
+</body>
+</html>
